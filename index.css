@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  height: 100vh;
+  max-width: 768px;
+  margin: auto;
+}
+.justify-space-row {
+  justify-content: space-between;
+}
+.justify-center-row {
+  justify-content: center;
+}
+.row {
+  display: flex;
+}
+.column {
+  flex-direction: column;
+}
+.table {
+  height: 50vmin;
+  width: 50vmin;
+  box-shadow: 0px 0px 8px #000;
+}
+.f-1 {
+  flex-grow: 1;
+}
+.p-1 {
+  padding: 0.5rem;
+}
+
+.square {
+  flex-grow: 1;
+}

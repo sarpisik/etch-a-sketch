@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Etch A Sketch</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container p-1">
+      <div class="row justify-space-row">
+        <div class="col">
+          <button id="change-size">Change Size</button>
+        </div>
+
+        <div class="col">
+          <select>
+            <option selected value="0">Change Color Style</option>
+            <option value="1">Black & white</option>
+            <option value="2">Rainbow</option>
+            <option value="3">Darker On Repeat</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <button id="clear">Clear Table</button>
+        </div>
+      </div>
+
+      <div class="row justify-center-row"></div>
+    </div>
+    <script src="index.js"></script>
+  </body>
 </html>
