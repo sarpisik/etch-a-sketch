@@ -1,9 +1,13 @@
+// Global Variables
 let size = 10,
-  sizeButton = document.getElementById('change-size'),
+  colorStyle,
+  table;
+
+// DOM Elements
+let sizeButton = document.getElementById('change-size'),
   select = document.querySelector('select'),
   clearButton = document.getElementById('clear'),
-  container = document.querySelector('.row.justify-center-row'),
-  table;
+  container = document.querySelector('.row.justify-center-row');
 
 window.addEventListener('load', initialApp);
 
@@ -13,6 +17,7 @@ function initialApp() {
 
   // Event Listeners
   sizeButton.addEventListener('click', handleSizeRequest);
+  select.addEventListener('change', handleColorStyleSelection);
   clearButton.addEventListener('click', handleClearTable);
 }
 
@@ -57,7 +62,15 @@ class Row extends App {
 class Square extends App {
   constructor() {
     super('f-1 square');
-    this.element.addEventListener('mouseenter', changeBackgroundColor);
+    this.element.addEventListener(
+      'mouseenter',
+      this.changeBackgroundColor.bind(this)
+    );
+  }
+
+  changeBackgroundColor() {
+    this.element.style.backgroundColor = '#000';
+    this.element.removeEventListener('mouseenter', this.changeBackgroundColor);
   }
 }
 
@@ -74,6 +87,9 @@ function handleSizeRequest() {
   // Update global size variable
   size = sizeNumber;
   createNewTable(size);
+}
+function handleColorStyleSelection({ target }) {
+  colorStyle = target.value;
 }
 function handleClearTable() {
   createNewTable(size);
