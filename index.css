@@ -5,7 +5,7 @@
 }
 .container {
   height: 100vh;
-  max-width: 768px;
+  max-width: 960px;
   margin: auto;
 }
 .justify-space-row {
@@ -21,15 +21,15 @@
   flex-direction: column;
 }
 .table {
-  height: 50vmin;
-  width: 50vmin;
+  height: 100vmin;
+  width: 100vmin;
   box-shadow: 0px 0px 8px #000;
 }
 .f-1 {
   flex-grow: 1;
 }
 .p-1 {
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .square {
