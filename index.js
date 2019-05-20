@@ -1,13 +1,15 @@
 // Global Variables
 let size = 10,
   colorStyle = 0,
-  table;
+  table,
+  TEXT_REQUEST =
+    'How many squares per side do you want to make the new table? Please enter a positive decimal number between 0 - 100.';
 
 // DOM Elements
 let sizeButton = document.getElementById('change-size'),
   select = document.querySelector('select'),
   clearButton = document.getElementById('clear'),
-  container = document.querySelector('.row.justify-center-row');
+  container = document.querySelector('.row.table-container');
 
 // Initialize application
 window.addEventListener('load', initialApp);
@@ -51,7 +53,7 @@ class App {
 // Parent of all the rows on a table.
 class Table extends App {
   constructor(rowCount) {
-    super('table row column');
+    super('table shadow row column');
     super.renderChildren(rowCount, Row);
   }
 }
@@ -160,9 +162,7 @@ function handleClearTable() {
  */
 
 function requestNewSize() {
-  return prompt(
-    'Enter the number of squares in a range of 1 to 100 to change the table size. E.g. 10 means 10*10.'
-  );
+  return prompt(TEXT_REQUEST);
 }
 function createNewTable(size) {
   // Remove previous table
