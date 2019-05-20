@@ -1,6 +1,6 @@
 // Global Variables
 let size = 10,
-  colorStyle,
+  colorStyle = 0,
   table;
 
 // DOM Elements
@@ -62,15 +62,35 @@ class Row extends App {
 class Square extends App {
   constructor() {
     super('f-1 square');
+    this.colorStyles = {
+      0: 'rgb(0,0,0)',
+      1: this.generateRandomColor()
+    };
     this.element.addEventListener(
       'mouseenter',
-      this.changeBackgroundColor.bind(this)
+      this.handleBackgroundChange.bind(this)
     );
   }
 
-  changeBackgroundColor() {
-    this.element.style.backgroundColor = '#000';
-    this.element.removeEventListener('mouseenter', this.changeBackgroundColor);
+  handleBackgroundChange() {
+    const color = this.colorStyles[colorStyle];
+    this.changeBackgroundColor(color);
+  }
+
+  changeBackgroundColor(color) {
+    this.element.style.backgroundColor = color;
+    // this.element.removeEventListener('mouseenter', this.changeBackgroundColor);
+  }
+
+  generateRandomColor() {
+    let red = this.getRandomNumber();
+    let green = this.getRandomNumber();
+    let blue = this.getRandomNumber();
+    return `rgb(${red},${green},${blue})`;
+  }
+
+  getRandomNumber() {
+    return Math.floor(Math.random() * 255);
   }
 }
 
