@@ -47,6 +47,8 @@ a:hover {
 .table {
   height: 80vmin;
   width: 80vmin;
+  display: grid;
+  grid-gap: 1px;
 }
 .f-1 {
   flex-grow: 1;

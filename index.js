@@ -43,6 +43,10 @@ class App {
     this.element.setAttribute('class', classNames);
   }
 
+  setInlineStyle(count) {
+    this.element.style.cssText = `grid-template-columns: repeat(${count}, 1fr);`;
+  }
+
   renderChildren(count, Child) {
     for (let i = 0; i < count; i++) {
       const childElement = new Child(count).element;
@@ -50,24 +54,18 @@ class App {
     }
   }
 }
-// Parent of all the rows on a table.
+// Parent of all the squares on a table.
 class Table extends App {
   constructor(rowCount) {
     super('table shadow row column');
-    super.renderChildren(rowCount, Row);
-  }
-}
-// Parent of all the squares on a line
-class Row extends App {
-  constructor(squareCount) {
-    super('f-1 row');
-    super.renderChildren(squareCount, Square);
+    super.setInlineStyle(rowCount);
+    super.renderChildren(rowCount * rowCount, Square);
   }
 }
 // A child square element in a row.
 class Square extends App {
   constructor() {
-    super('f-1 square');
+    super();
     // Initial white background color
     this.red = 255;
     this.green = 255;
